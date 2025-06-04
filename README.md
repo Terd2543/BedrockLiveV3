@@ -1,280 +1,225 @@
 <div align="center">
 
-![TikTok Live MCBE](./docs/images/TikTokLiveMCBE.png)
+<img src="docs/images/bedrocklive.png" alt="BedrockLive Logo" width="200">
 
-# TikTokLiveMCBE
+# BedrockLive
 
+[![npm version](https://img.shields.io/npm/v/bedrocklive.svg)](https://www.npmjs.com/package/bedrocklive)
+[![npm downloads](https://img.shields.io/npm/dm/bedrocklive.svg)](https://www.npmjs.com/package/bedrocklive)
+![GitHub Downloads](https://img.shields.io/github/downloads/rqinix/BedrockLive/total?color=brightgreen&logo=github)
+[![GitHub stars](https://img.shields.io/github/stars/rqinix/bedrocklive.svg)](https://github.com/rqinix/BedrockLive/stargazers)
+[![GitHub license](https://img.shields.io/github/license/rqinix/bedrocklive.svg)](https://github.com/rqinix/BedrockLive/blob/main/LICENSE)
+[![Discord](https://img.shields.io/discord/1280028960129941584?logo=discord&label=Discord)](https://discord.gg/U474DVQ8)
+
+**Turn your Minecraft streams into interactive TikTok experiences. Connect live stream events directly to your game world.**
 </div>
 
-<p align="center">TikTokLiveMCBE is a simple tool that connects your TikTok Live stream with your Minecraft BE/PE.</p>
+BedrockLive transforms your Minecraft Bedrock streams into fully interactive experiences where your TikTok audience becomes part of the gameplay. Through real-time event binding, viewer actions like sending gifts, following, sharing, or chatting trigger immediate responses in your Minecraft world.
 
-## Installation
+Built specifically for Minecraft Bedrock/Pocket Edition, The system operates through a local server that captures TikTok events and translates them into Minecraft commands, allowing for unlimited creative possibilities in viewer engagement.
 
-### Prerequisites
+Whether you're running building challenges, survival scenarios, or custom game modes, BedrockLive gives you the tools to create interactive content that keeps viewers engaged and encourages participation through the platform's gifting and social features.
 
-Before you begin, ensure you have [Node.js](https://nodejs.org/) installed on your computer. If you're on an Android device, you can use Termux to run TikTokLiveMCBE.
+## 🚀 Quick Start
 
-#### Setup Tutorial on Termux
-
-Click the image below to watch the full setup tutorial on YouTube!
-
-<div align='center'>
-
-[![Watch the video](https://img.youtube.com/vi/GQu1S_rnxkY/default.jpg)](https://youtu.be/GQu1S_rnxkY?feature=shared)
-
-</div>
-
-1. **Download the Latest Release**
-
-Download the latest version of TikTokLiveMCBE. Look for the ZIP file in the list of assets.
-
-> - [Download TikTokLiveMCBE](https://github.com/rqinix/TikTokLiveMCBE/releases/)
->
-> **_Show your support by giving it a ⭐!_**
-
-2. **Uncompress the ZIP File**
-
-- Once the download is complete, extract the contents of the ZIP file to a folder of your choice.
-
-3. **Navigate to the TikTokLiveMCBE Folder**
-
-- Using your terminal or command prompt, navigate to the extracted folder. For example:
+### Global Installation (Recommended)
 
 ```bash
-cd TikTokLiveMCBE
+npm install -g bedrocklive
+bedrocklive
 ```
 
-4. **Install the Dependencies**
+### Local Installation
 
 ```bash
+npx bedrocklive
+```
+
+### From Source
+
+```bash
+git clone https://github.com/rqinix/BedrockLive.git
+cd bedrocklive
 npm install
-```
-
-or if you prefer Yarn, first install Yarn globally:
-```bash
-npm install --global yarn
-```
-
-Then install the dependencies:
-```bash
-yarn install
-```
-
-5. **Start the Server**
-
-Start the TikTokLiveMCBE server:
-```bash
 npm start
 ```
-or if you're using Yarn:
+
+## ✨ Features
+
+- 🎮 **Real-time TikTok Live to Minecraft Bridge** - Connect your stream instantly
+- 🔌 **Plugin System** - Extensible with custom plugins
+- 📱 **Mobile-First** - Designed for Minecraft Bedrock/Pocket Edition
+- 🛠️ **Easy Setup** - No complex configuration required
+- 🔥 [Free TNT Game (Bedrock Box)](https://github.com/rqinix/TNTCoin)
+
+## 🎯 Use Cases
+
+
+## 📋 Requirements
+
+- [Node.js (LTS recommended)](https://nodejs.org/en/download) (For Desktop)
+- **Minecraft Bedrock Edition** (Mobile, Windows 10+, Xbox, etc.)
+- **TikTok Account** with live streaming capability
+- **Local Network Access** for WebSocket connection
+
+## 🔧 Setup Guide
+
+### 1. Install BedrockLive
+
 ```bash
-yarn start
+npm install -g bedrocklive
 ```
 
-TikTokLiveMCBE will prompt you to provide your TikTok username, port number (default is `3000`), and select your desired plugins from the available options.
+### 2. Run BedrockLive
 
 ```bash
-Welcome to TikTokLiveMCBE!
-✔ Enter TikTok username (must be live): rqinix
-✔ Enter the port number: 3000
-? Select plugins to activate: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to
-proceed)
-❯◯ TNT Coin by Rqinix
+bedrocklive
 ```
 
-```bash
-Welcome to TikTokLiveMCBE!
-✔ Enter TikTok username (must be live): rqinix
-✔ Enter the port number: 3000
-✔ Select plugins to activate: TNT Coin by Rqinix
-✔ Connected to rqinix TikTok Live Stream.
-Open Minecraft and run this command '/connect localhost:3000' to connect.
-<Ctrl + C> to stop the server.
+Follow the interactive prompts:
+- Enter your TikTok username
+- Set the port (default: 3000)
+- Choose whether to wait until you're live
+- Select plugins to activate
+
+### 3. Connect Minecraft
+
+In your Minecraft Bedrock Edition:
+
+Open Minecraft chat and type:
 ```
-
-6. **Connect Minecraft to TikTokLiveMCBE**
-
-Once TikTokLiveMCBE is successfully connected to the live stream, open Minecraft and connect to the server using the following command:
-
-```bash
 /connect localhost:3000
 ```
 
-This command establishes the connection between Minecraft and TikTokLiveMCBE. Make sure the port matches the one configured during the setup process.
+### 4. Start Your TikTok Live Stream
 
----
+Your Minecraft world is now connected to your TikTok Live stream! 🎉
 
-## Subscribing to Minecraft Events
+## 🔌 Plugin System
 
-You can subscribe to Minecraft events like this:
-```ts
-import { connection } from "./core/TikTokLiveMcbe.js";
+BedrockLive uses an embedded plugin system. Plugins are defined directly in TypeScript files without separate manifest files.
 
-const { tiktok, minecraft } = connection;
+### Creating a Plugin
 
-// Subscribe to Minecraft Events
-minecraft.subscribeToEvents([
-    "PlayerMessage",
-    "BlockBroken",
-    "BlockPlaced",
-    // ... other events
-]);
+Create a file in `plugins/my-plugin/main.ts`:
 
-// Handle Events
+```typescript
+import { BedrockLive } from "../../core/bedrocklive.js";
+import { WebcastEvent } from "tiktok-live-connector";
 
-minecraft.on("PlayerMessage", (data) => {
+export const manifest = {
+    name: "My Awesome Plugin",
+    description: "Does amazing things with TikTok events",
+    version: "1.0.0",
+    author: "Your Name"
+};
 
-    console.log(`PlayerMessage Event: ${data}`);
-
-});
-
-minecraft.on("BlockBroken", (data) => {
-
-    console.log(`BlockBroken Event: ${data}`);
-
-});
-
-minecraft.on("BlockPlaced", (data) => {
-
-    console.log(`BlockPlaced Event: ${data}`);
-
-});
-
-// ...
-```
-
-Whenever a player sends a message, breaks a block, or places a block, these events will be triggered, and the corresponding code will be executed, such as logging the event data to the console.
-
-For example, when a PlayerMessage event is triggered, the event data is logged as follows:
-```ts
-console.log(`PlayerMessage Event: ${data}`);
-```
-
-This will output the following in the console:
-```bash
-PlayerMessage Event: {"body":{"message":"hello","receiver":"","sender":"Steve","type":"chat"},"header":{"eventName":"PlayerMessage","messagePurpose":"event","version":17039360}}
-```
-
-Similarly, for the BlockBroken event:
-```ts
-console.log(`BlockBroken Event: ${data}`);
-```
-
-The console output will look like this:
-```bash
-BlockBroken Event: {"body":{"block":{"aux":0,"id":"grass_block","namespace":"minecraft"},"count":1,"destructionMethod":0,"player":{"color":"ffededed","dimension":0,"id":-4294967295,"name":"Steve","position":{"x":2.987498283386230,"y":-56.45503997802734,"z":14.11897277832031},"type":"minecraft:player","variant":0,"yRot":-95.82889556884766},"tool":{"aux":0,"enchantments":[],"freeStackSize":0,"id":"iron_pickaxe","maxStackSize":1,"namespace":"minecraft","stackSize":1},"variant":0},"header":{"eventName":"BlockBroken","messagePurpose":"event","version":17039360}}
-```
-
-And for the BlockPlaced event:
-```ts
-console.log(`BlockPlaced Event: ${data}`);
-```
-
-This will output:
-```bash
-BlockPlaced Event: {"body":{"block":{"aux":0,"id":"diamond_block","namespace":"minecraft"},"count":1,"placedUnderWater":false,"placementMethod":0,"player":{"color":"ffededed","dimension":0,"id":-4294967295,"name":"Steve","position":{"x":11.93433761596680,"y":-56.45503997802734,"z":13.82549858093262},"type":"minecraft:player","variant":0,"yRot":-95.34191131591797},"tool":{"aux":0,"enchantments":[],"freeStackSize":0,"id":"diamond_block","maxStackSize":64,"namespace":"minecraft","stackSize":64}},"header":{"eventName":"BlockPlaced","messagePurpose":"event","version":17039360}}
-```
-
-## Sending Minecraft Commands
-
-```ts
-minecraft.sendCommand('say hello, world!');
-```
-
-## Handling TikTok Events
-
-You can also handle TikTok events, such as receiving gifts, likes, chats and follows, as shown below:
-
-```ts
-import { connection } from "./core/TikTokLiveMcbe.js";
-
-const { tiktok, minecraft } = connection;
-
-// ...
-
-tiktok.events.onGift(data => {
-    // If this is a streakable gift and the streak is NOT ending, handle it temporarily
-    if (data.giftType === 1 && !data.repeatEnd) {
-        minecraft.sendCommand(`say ${data.uniqueId} is sending gift ${data.giftName} x${data.repeatCount} (streak in progress)`);
-        return;
-    }
-
-    // Otherwise, process the gift (final count, send Minecraft message, etc.)
-    const { giftName, uniqueId, nickname } = data;
-    minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"§a§l${nickname} §7has sent §a§l${giftName} x${data.repeatCount}"}]}`);
-});
-
-tiktok.events.onChat(data => {
-    const { uniqueId, nickname, comment } = data;
-    minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"§a§l${nickname} §7says: §a§l${comment}"}]}`);
-});
-
-tiktok.events.onLike(data => {
-    const { uniqueId, nickname, likeCount } = data;
-    minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"§a§l${nickname} §7liked the stream §a§l${likeCount} times!"}]}`);
-});
-
-tiktok.events.onFollow(data => {
-    const { uniqueId, nickname } = data;
-    minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"§a§l${nickname} §7has followed the stream!"}]}`);
-});
-
-tiktok.events.onShare(data => {
-    const { uniqueId, nickname } = data;
-    minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"§a§l${nickname} §7has shared the stream!"}]}`);
-});
-
-// ...
-```
-
-## Creating Plugins for TikTokLiveMCBE
-
-TikTokLiveMCBE supports custom plugins to extend its functionality. Each plugin must have its own folder containing two files:
-
-1. `manifest.json`
-- This file describes the plugin's metadata.
-
-Below is an example:
-```
-{
-  "name": "My Custom Plugin",
-  "version": "1.0.0",
-  "description": "A custom plugin for TikTokLiveMCBE.",
-  "author": "Your Name"
-}
-```
-
-Ensure `manifest.json` includes `name`, `version`, `description`, and `author`.
-
-2. `main.ts` or `main.js`
-- Contains the plugin's logic. Example:
-```js
-import { TikTokLiveMCBE } from "../../core/TikTokLiveMcbe.js";
-
-export function plugin(tiktokLiveMcbe: TikTokLiveMCBE): void {
-    const { tiktok, minecraft } = tiktokLiveMcbe;
-
-    console.log('Hello TikTokLiveMCBE');
-
-    minecraft.on("connected", () => {
-        const data = { tiktokUserName: tiktok.username };
-        minecraft.sendCommand(`tellraw @a {"rawtext":[{"text":"LOL"}]}`);
+export function plugin(bedrockLive: BedrockLive): void {
+    const { tiktok, minecraft } = bedrockLive;
+    
+    // React to TikTok chat messages
+    tiktok.events.onEvent(WebcastEvent.CHAT, (data) => {
+        minecraft.requestCommand(`say ${data.user.uniqueId}: ${data.comment}`);
+    });
+    
+    // React to gifts
+    tiktok.events.onEvent(WebcastEvent.GIFT, (data) => {
+        if (data.giftId === 5655) { // Rose gift
+            minecraft.requestCommand(`summon tnt ~ ~5 ~`);
+        }
     });
 }
 ```
 
-#### Plugin Folder Structure
+### Built-in Plugins
 
+- [TNT Coin](https://github.com/rqinix/TNTCoin) - Full TikTok TNT Game support
+
+## 🌐 Events
+
+BedrockLive handles these TikTok Live events:
+
+| Event | Description | Minecraft Integration |
+|-------|-------------|---------------------|
+| `CHAT` | Chat messages | Display in game chat |
+| `GIFT` | Gifts sent to streamer | Trigger TNT, effects, or commands |
+| `LIKE` | Likes on the stream | Particle effects, sounds |
+| `FOLLOW` | New followers | Welcome messages, rewards |
+| `SHARE` | Stream shares | Special announcements |
+| `MEMBER` | Viewers joining | Join notifications |
+
+## 🚨 Troubleshooting
+
+### Connection Issues
+
+**Minecraft says "Could not connect":**
+
+1. Make sure websocket is enabled in your Minecraft settings
+2. Check if BedrockLive is running and shows the correct port
+3. Try using your computer's IP address instead of `localhost`
+4. Ensure firewall isn't blocking the connection
+5. On mobile, make sure you're on the same WiFi network
+
+**TikTok connection fails:**
+
+1. Verify your TikTok username is correct
+2. Make sure you're currently live streaming
+3. Check your internet connection
+4. Try restarting BedrockLive
+
+### Finding Your IP Address
+
+**Windows:**
+```cmd
+ipconfig
 ```
-plugins/
-├── MyCustomPlugin/
-│   ├── manifest.json
-│   └── main.ts
+
+**Mac/Linux:**
+```bash
+ifconfig
 ```
 
-### Submitting Your Plugin
-If you’ve created a plugin that you’d like to share with the community, feel free to open a pull request or contribute to the TikTokLiveMCBE repository.
+Look for your local IP (usually starts with 192.168.x.x)
 
-## Contributing
+## 🤝 Contributing
 
-Feel free to contribute by submitting issues or pull requests. Any improvements or new features are welcome!
+We welcome contributions! Here's how to get started:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+### Development Setup
+
+```bash
+git clone https://github.com/rqinix/BedrockLive.git
+cd bedrocklive
+npm install
+npm run dev
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [TikTok Live Connector](https://github.com/zerodytrash/TikTok-Live-Connector) - The awesome library that makes TikTok integration possible
+- [Minecraft Bedrock WSS](https://www.s-anand.net/blog/programming-minecraft-with-websockets/) - Minecraft Bedrock WebSocket reference
+- Community contributors and content creators using BedrockLive
+
+## 📞 Support
+
+- **Discord:** [BedrockLive](https://discord.gg/U474DVQ8)
+- **Issues:** [GitHub Issues](https://github.com/rqinix/bedrockBedrockLive)
+- **Email:** rqinix.io@gmail.com
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if BedrockLive helped your stream! ⭐**
+
+</div>
