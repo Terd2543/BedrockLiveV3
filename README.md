@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/bedrocklive.png" alt="BedrockLive Logo" width="200">
+<img src="https://github.com/rqinix/BedrockLive/blob/main/docs/images/bedrocklive.png?raw=true" alt="BedrockLive Logo" width="200">
 
 # BedrockLive
 
