@@ -1,80 +1,91 @@
-import { TikTokLiveMcbe } from "../../core/tiktok-live-mcbe.js";
+import { BedrockLive } from "../../core/bedrocklive.js";
+import {
+    WebcastEvent,
+    WebcastMemberMessage,
+    WebcastSocialMessage,
+    WebcastChatMessage,
+    WebcastGiftMessage,
+    WebcastLikeMessage
+} from "tiktok-live-connector";
+
+export const manifest: PluginManifest = {
+    name: "TNT Coin",
+    description: "A plugin to support the TNT Coin addon for interactions",
+    version: "1.2.0",
+    author: "Rqinix"
+};
 
 /**
- * TikTokLiveMCBE plugin.
- * A plugin to support the TNT Coin addon.
- * @param tiktokLiveMcbe The TikTokLiveMCBE instance.
+ * BedrockLive plugin.
+ * @param bedrockLive The BedrockLive instance.
  */
-export function plugin(tiktokLiveMcbe: TikTokLiveMcbe): void {
-  const { tiktok, minecraft } = tiktokLiveMcbe;
-  const newFollowers: string[] = [];
-
-  minecraft.on("connected", () => {
-    const data = { tiktokUserName: tiktok.username };
-    minecraft.sendCommand(
-      `tellraw @a {"rawtext":[{"text":"§a§l§cTNT§f §eCoin§f §aplugin loaded§f!"}]}`
-    );
-    minecraft.sendCommand(
-      `scriptevent tntcoin:connected ${JSON.stringify(data)}`
-    );
-  });
-
-  tiktok.events.onJoin((data) => {
-    const message = JSON.stringify({
-      uniqueId: data.uniqueId,
-      nickname: data.nickname,
+export function plugin(bedrockLive: BedrockLive): void {
+    const { tiktok, minecraft } = bedrockLive;
+    const newFollowers: string[] = [];
+    const data = { tiktokUsername: tiktok.tiktokUsername };
+    
+    bedrockLive.minecraftWss.on('connection', () => {
+        minecraft.requestCommand(`tellraw @a {"rawtext":[{"text":"§a§l§cTNT§f §eCoin§f §aplugin loaded§f!"}]}`);
+        minecraft.requestCommand(`playsound random.levelup @a`);
+        minecraft.requestCommand(`scriptevent tntcoin:connected ${JSON.stringify(data)}`);
     });
-    minecraft.sendScriptEvent("tntcoin:join", message);
-  });
 
-  tiktok.events.onFollow((data) => {
-    if (newFollowers.includes(data.uniqueId)) return;
-    newFollowers.push(data.uniqueId);
-    const message = JSON.stringify({
-      uniqueId: data.uniqueId,
-      nickname: data.nickname,
+    tiktok.events.onEvent(WebcastEvent.MEMBER, (data: WebcastMemberMessage) => {
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+        });
+        minecraft.sendScriptEvent("tntcoin:join", message);
     });
-    minecraft.sendScriptEvent("tntcoin:follow", message);
-  });
 
-  tiktok.events.onChat((data) => {
-    const message = JSON.stringify({
-      uniqueId: data.uniqueId,
-      nickname: data.nickname,
-      comment: data.comment,
+    tiktok.events.onEvent(WebcastEvent.CHAT, (data: WebcastChatMessage) => {
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+            comment: data.comment,
+        });
+        minecraft.sendScriptEvent("tntcoin:chat", message);
     });
-    minecraft.sendScriptEvent("tntcoin:chat", message);
-  });
 
-  tiktok.events.onLike((data) => {
-    const message = JSON.stringify({
-      uniqueId: data.uniqueId,
-      nickname: data.nickname,
-      count: data.likeCount,
-      totalLikes: data.totalLikeCount,
+    tiktok.events.onEvent(WebcastEvent.LIKE, (data: WebcastLikeMessage) => {
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+            likeCount: data.likeCount,
+            totalLikeCount: data.totalLikeCount,
+        });
+        minecraft.sendScriptEvent("tntcoin:like", message);
     });
-    minecraft.sendScriptEvent("tntcoin:like", message);
-  });
 
-  tiktok.events.onGift((data) => {
-    const { giftType, repeatCount, repeatEnd, uniqueId, nickname, giftName, giftId } = data;
-    if (giftType === 1 && !repeatEnd) return;
-    const message = JSON.stringify({
-      uniqueId,
-      nickname,
-      giftName,
-      giftId,
-      giftCount: repeatCount,
-      giftType,
+    tiktok.events.onEvent(WebcastEvent.GIFT, (data: WebcastGiftMessage) => {
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+            giftName: data.giftDetails?.giftName || `Gift ${data.giftId}`,
+            giftId: data.giftId,
+            repeatCount: data.repeatCount,
+            giftType: data.giftDetails?.giftType || 1,
+            diamondCount: data.giftDetails?.diamondCount || 0,
+            repeatEnd: data.repeatEnd,
+        });
+        minecraft.sendScriptEvent("tntcoin:gift", message);
     });
-    minecraft.sendScriptEvent("tntcoin:gift", message);
-  });
 
-  tiktok.events.onShare((data) => {
-    const message = JSON.stringify({
-      uniqueId: data.uniqueId,
-      nickname: data.nickname,
+    tiktok.events.onEvent(WebcastEvent.FOLLOW, (data: WebcastSocialMessage) => {
+        if (newFollowers.includes(data.user.userId)) return;
+        newFollowers.push(data.user.userId);
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+        });
+        minecraft.sendScriptEvent("tntcoin:follow", message);
     });
-    minecraft.sendScriptEvent("tntcoin:share", message);
-  });
+
+    tiktok.events.onEvent(WebcastEvent.SHARE, (data: WebcastSocialMessage) => {
+        const message = JSON.stringify({
+            username: data.user.uniqueId,
+            nickname: data.user.nickname,
+        });
+        minecraft.sendScriptEvent("tntcoin:share", message);
+    });
 }
