@@ -1,6 +1,6 @@
 {
   "name": "bedrocklive",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Turn your Minecraft streams into interactive TikTok experiences. Connect live stream events directly to your game world.",
   "main": "dist/app.js",
   "type": "module",
@@ -13,10 +13,17 @@
     "dev": "tsc && node dist/app.js"
   },
   "keywords": [
-    "tiktok", "minecraft", "live", "stream",
-    "connector", "bedrock", "pocket-edition",
+    "tiktok",
+    "minecraft",
+    "live",
+    "stream",
+    "connector",
+    "bedrock",
+    "pocket-edition",
     "tnt-challenge",
-    "websocket", "gaming", "interactive"
+    "websocket",
+    "gaming",
+    "interactive"
   ],
   "author": {
     "name": "Rqinix",
