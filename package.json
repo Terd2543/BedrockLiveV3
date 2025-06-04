@@ -1,23 +1,42 @@
 {
   "name": "bedrocklive",
   "version": "1.2.0",
-  "description": "BedrockLive is a simple tool that connects your TikTok Live stream with Minecraft Bedrock/Pocket Edition.",
+  "description": "Turn your Minecraft streams into interactive TikTok experiences. Connect live stream events directly to your game world.",
   "main": "dist/app.js",
   "type": "module",
+  "bin": {
+    "bedrocklive": "./bin/bedrocklive.js"
+  },
   "scripts": {
     "start": "npm run build && node dist/app.js",
     "build": "tsc",
     "dev": "tsc && node dist/app.js"
   },
   "keywords": [
-    "TikTok",
-    "Minecraft",
-    "Live",
-    "Server",
-    "Connector"
+    "tiktok", "minecraft", "live", "stream",
+    "connector", "bedrock", "pocket-edition",
+    "tnt-challenge",
+    "websocket", "gaming", "interactive"
   ],
-  "author": "Rqinix",
+  "author": {
+    "name": "Rqinix",
+    "url": "https://github.com/rqinix"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rqinix/BedrockLive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rqinix/BedrockLive/issues"
+  },
+  "homepage": "https://github.com/rqinix/BedrockLive#readme",
+  "files": [
+    "dist/**/*",
+    "bin/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/gradient-string": "^1.1.6",
