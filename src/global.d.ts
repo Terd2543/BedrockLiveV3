@@ -1,10 +1,3 @@
-// Global type declarations for BedrockLive
-
-// Import and re-export types from our local type definitions
-/// <reference types="./src/@types/tiktok/index.d.ts" />
-/// <reference types="./src/@types/minecraft/Events.d.ts" />
-
-// Make types globally available
 declare global {
   // TikTok related types
   interface TikTokLiveServerConfig {
@@ -28,17 +21,94 @@ declare global {
   }
 
   // Minecraft related types
-  type MinecraftEvent = 
-    | "PlayerMessage"
+  type MinecraftEvent =
+    | "AdditionalContentLoaded"
+    | "AgentCommand"
+    | "AgentCreated"
+    | "ApiInit"
+    | "AppPaused"
+    | "AppResumed"
+    | "AppSuspended"
+    | "AwardAchievement"
     | "BlockBroken"
     | "BlockPlaced"
+    | "BoardTextUpdated"
+    | "BossKilled"
+    | "CameraUsed"
+    | "CauldronUsed"
+    | "ChunkChanged"
+    | "ChunkLoaded"
+    | "ChunkUnloaded"
+    | "ConfigurationChanged"
+    | "ConnectionFailed"
+    | "CraftingSessionCompleted"
+    | "EndOfDay"
+    | "EntitySpawned"
+    | "FileTransmissionCancelled"
+    | "FileTransmissionCompleted"
+    | "FileTransmissionStarted"
+    | "FirstTimeClientOpen"
+    | "FocusGained"
+    | "FocusLost"
+    | "GameSessionComplete"
+    | "GameSessionStart"
+    | "HardwareInfo"
+    | "HasNewContent"
+    | "ItemAcquired"
+    | "ItemCrafted"
+    | "ItemDestroyed"
+    | "ItemDropped"
+    | "ItemEnchanted"
+    | "ItemSmelted"
+    | "ItemUsed"
+    | "JoinCanceled"
+    | "JukeboxUsed"
+    | "LicenseCensus"
+    | "MascotCreated"
+    | "MenuShown"
+    | "MobInteracted"
+    | "MobKilled"
+    | "MultiplayerConnectionStateChanged"
+    | "MultiplayerRoundEnd"
+    | "MultiplayerRoundStart"
+    | "NpcPropertiesUpdated"
+    | "OptionsUpdated"
+    | "performanceMetrics"
+    | "PackImportStage"
+    | "PlayerBounced"
+    | "PlayerDied"
     | "PlayerJoin"
     | "PlayerLeave"
-    | "PlayerDied"
-    | "MobKilled"
-    | "ItemUsed"
-    | "ItemCrafted"
-    | "ItemDropped";
+    | "PlayerMessage"
+    | "PlayerTeleported"
+    | "PlayerTransform"
+    | "PlayerTravelled"
+    | "PortalBuilt"
+    | "PortalUsed"
+    | "PortfolioExported"
+    | "PotionBrewed"
+    | "PurchaseAttempt"
+    | "PurchaseResolved"
+    | "RegionalPopup"
+    | "RespondedToAcceptContent"
+    | "ScreenChanged"
+    | "ScreenHeartbeat"
+    | "SignInToEdu"
+    | "SignInToXboxLive"
+    | "SignOutOfXboxLive"
+    | "SpecialMobBuilt"
+    | "StartClient"
+    | "StartWorld"
+    | "TextToSpeechToggled"
+    | "UgcDownloadCompleted"
+    | "UgcDownloadStarted"
+    | "UploadSkin"
+    | "VehicleExited"
+    | "WorldExported"
+    | "WorldFilesListed"
+    | "WorldGenerated"
+    | "WorldLoaded"
+    | "WorldUnloaded";
 }
 
 export {};
